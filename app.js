@@ -23,6 +23,8 @@ const type_map = {
     u8: 1,
     s8: 1,
     u16: 2,
+    s16: 2,
+    s32: 4,
     f32: 4,
     SkelAnime: 0x44,
     Actor: 0x14C
@@ -137,9 +139,8 @@ function marker_new_update_name(_value) {
     if (document.getElementById("input_marker_type").value == "") {
         document.getElementById("input_marker_type").value = "char";
     }
-    if (document.getElementById("input_marker_name").value == "") {
-        document.getElementById("input_marker_name").value = `unk_${hexFmt(parseInt(_value, 16))}`;
-    }
+    
+    document.getElementById("input_marker_name").value = `unk_${hexFmt(parseInt(_value, 16))}`;
 }
 
 // https://stackoverflow.com/a/51261023
