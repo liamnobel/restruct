@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>ReStruct</title>
+
+    <script src="app.js"></script>
+</head>
+
+<body style="background-color: rgb(10, 21, 53); color:rgb(225, 225, 225);">
+    <div id="container" class="container-fluid py-4" style="background-color: rgb(47, 72, 124)">
+        <div class="row">
+            <div class="col-6">
+
+                <h1>ReStruct</h1>
+                <hr>
+                <h2>Struct</h2>
+                <label class="form-label">Properties</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text extra-info" id="basic-addon1">Name</span>
+                    <input id="input_struct_name" type="text" class="form-control" placeholder="EnActor" oninput="data_update_name(this.value);">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text extra-info" id="basic-addon1">Byte Size</span>
+                    <span class="input-group-text">0x</span>
+                    <input id="input_struct_size" type="text" class="form-control" placeholder="24C" pattern="[a-fA-F\d]+" oninput="data_update_size(this.value);">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text extra-info" id="basic-addon1">Show Member Sizes</span>
+                    <div class="input-group-text">
+                        <input id="input_show_member_sizes" class="form-check-input" type="checkbox" value="" aria-label="Checkbox for following text input" oninput="data_update_option_member_show_sizes(this.checked)" ;>
+                    </div>
+                </div>
+
+                <hr>
+                <h2>Markers</h2>
+                <label class="form-label">Add</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text extra-info">Offset</span>
+                    <input id="input_marker_position" type="text" class="form-control" placeholder="0x14C" oninput="marker_new_update_name(this.value);">
+                    <span class="input-group-text extra-info">Type</span>
+                    <input id="input_marker_type" type="text" class="form-control">
+                    <span class="input-group-text extra-info">Name</span>
+                    <input id="input_marker_name" type="text" class="form-control">
+                    <button id="button_marker_inject" class="btn btn-primary" type="button" onclick="addMarker();">Mark</button>
+                </div>
+
+                <label class="form-label">Remove</label>
+                <div id="marker_edit">Empty</div>
+
+            </div>
+            <div class="col-6">
+
+                <div style="color: rgb(42,42,42)">
+                    <pre id="output" style="min-height: 256px; background-color: rgb(225, 225, 225);"></pre>
+
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-primary" onclick="copy('output');">Copy</button>
+                </div>
+
+                <hr>
+                <h2>Options</h2>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Remove Window Padding</span>
+                    <div class="input-group-text">
+                        <input id="input_window_padding" class="form-check-input" type="checkbox" value="" oninput="set_window_padding(this.checked)" ;>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Remove Labels</span>
+                    <div class="input-group-text">
+                        <input id="input_window_labels" class="form-check-input" type="checkbox" value="" oninput="set_window_labels(this.checked)" ;>
+                    </div>
+                </div>
+
+                <hr>
+                <h2>Data</h2>
+                <div class="input-group">
+                    <textarea id="input_data_json" class="form-control mb-3"></textarea>
+                </div>
+
+                <button type="button" class="btn btn-secondary" onclick="data_json_export();">Export</button>
+                <button type="button" class="btn btn-secondary" onclick="data_json_import();">Import</button>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <small>Written by Protocol (Liam N)</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+
+</html>
